@@ -15,7 +15,7 @@ const Experience = () => {
       role: 'Founder & Director',
       period: 'March 2022 – Present',
       location: 'Mumbai, India',
-      logo: '/images/logos/growthnext.png',
+      logo: './images/logos/growthnext.png',
       achievements: [
         'Providing strategic CFO advisory services to MSMEs, Mid-Corporate, and Large Corporates',
         'Leading fundraising initiatives, taxation planning, and audit & assurance services',
@@ -29,7 +29,7 @@ const Experience = () => {
       role: 'Partner',
       period: 'July 2022 – Present',
       location: 'Mumbai, India',
-      logo: '/images/logos/jb.png',
+      logo: './images/logos/jb.png',
       achievements: [
         'Partnering in chartered accountancy practice focused on audit and taxation',
         'Providing comprehensive compliance and regulatory advisory services',
@@ -42,7 +42,7 @@ const Experience = () => {
       role: 'Chief Financial Officer',
       period: 'December 2019 – February 2022',
       location: 'Mumbai, Maharashtra',
-      logo: '/images/logos/irb.png',
+      logo: './images/logos/irb.png',
       achievements: [
         'Managed road infrastructure assets with enterprise value exceeding ₹30,000 Crores',
         'Successfully raised ₹10,000 Crores in equity funding from GIC (sovereign wealth fund)',
@@ -56,7 +56,7 @@ const Experience = () => {
       role: 'Deputy General Manager – Treasury & Banking',
       period: 'June 2012 – June 2014',
       location: 'Mumbai, Maharashtra',
-      logo: '/images/logos/tata.png',
+      logo: './images/logos/tata.png',
       achievements: [
         'Established innovative working capital facilities for residential projects',
         'Facilitated issuance of long-term bonds (3-5 years) at competitive rates',
@@ -69,7 +69,7 @@ const Experience = () => {
       role: 'Manager – Treasury',
       period: 'February 2006 – November 2007',
       location: 'Mumbai, Maharashtra',
-      logo: '/images/logos/ceat.png',
+      logo: './images/logos/ceat.png',
       achievements: [
         'Managed consortium of 14 banking partners for working capital',
         'Negotiated favorable interest rate reductions and enhanced MPBF limits',
@@ -82,7 +82,7 @@ const Experience = () => {
       role: 'Manager – Treasury Controls',
       period: 'December 2007 – February 2010',
       location: 'Mumbai, Maharashtra',
-      logo: '/images/logos/clariant.png',
+      logo: './images/logos/clariant.png',
       achievements: [
         'Established multi-banking working capital facilities with foreign banks',
         'Managed credit control, export & import banking, and forex management',
