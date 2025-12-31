@@ -64,7 +64,7 @@ const Navbar = () => {
               className="text-2xl font-bold text-primary font-['Poppins'] cursor-pointer"
               onClick={() => scrollToSection('home')}
             >
-              CA Jitendra
+              CA Jitendra Sharma
             </motion.div>
 
             {/* Desktop Navigation */}
