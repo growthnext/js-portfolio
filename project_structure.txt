@@ -1,0 +1,33 @@
+jitendra-portfolio/
+├── public/
+│   ├── images/
+│   │   ├── JS1.webp
+│   │   ├── JS2.webp
+│   │   ├── JS3.webp
+│   │   └── logos/
+│   │       ├── growthnext.png
+│   │       ├── irb.png
+│   │       ├── tata.png
+│   │       ├── ceat.png
+│   │       ├── clariant.png
+│   │       ├── supermax.png
+│   │       ├── vvf.png
+│   │       └── jb.png
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Experience.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Contact.jsx
+│   │   └── Footer.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── vite.config.js
+└── .gitignore
