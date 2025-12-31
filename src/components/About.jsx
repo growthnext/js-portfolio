@@ -104,7 +104,7 @@ const About = () => {
               
               <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-gray-200 shadow-2xl">
                 <img
-                  src="./images/JS2.webp"
+                  src="./images/JS1.webp"
                   alt="CA Jitendra Sharma"
                   loading="lazy"
                   className="w-full h-auto rounded-2xl"

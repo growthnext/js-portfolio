@@ -129,10 +129,10 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:jitendra.sharma@growthnext.co.in"
-                  className="flex items-start gap-3 text-gray-600 text-sm hover:text-primary transition-colors"
+                  className="flex items-start gap-2 min-w-0 text-gray-600 text-sm hover:text-primary transition-colors"
                 >
                   <Mail size={16} className="mt-1 flex-shrink-0" />
-                  <span className="break-all">jitendra.sharma@growthnext.co.in</span>
+                  <span className="break-words sm:break-normal">jitendra.sharma@growthnext.co.in</span>
                 </a>
               </li>
               <li>

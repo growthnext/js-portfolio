@@ -20,27 +20,27 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar - Light Theme */
+/* Custom Scrollbar - Sky Blue Theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F5;
+  background: #EFF3FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #000030;
+  background: #1E40AF;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #000050;
+  background: #1E3A8A;
 }
 
-/* Selection - Light Theme */
+/* Selection */
 ::selection {
-  background: #000030;
+  background: #2563EB;
   color: #FFFFFF;
 }
 
@@ -51,11 +51,11 @@ html {
   }
 }
 
-/* Glassmorphism utility - Light Theme */
+/* Glassmorphism - Sky Blue */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 48, 0.1);
+  background: rgba(239, 243, 255, 0.8);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(30, 64, 175, 0.25);
 }
 
 /* Performance optimizations */

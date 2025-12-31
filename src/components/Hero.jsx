@@ -4,21 +4,48 @@ import { ChevronDown, Linkedin, Instagram, Facebook, Mail, Phone } from 'lucide-
 
 const Hero = () => {
   const [text, setText] = useState('');
-  const fullText = 'Strategic CFO Advisor & Board Director';
+  const titles = [
+  'CFO Advisor',
+  'Board Director',
+  'Audit & Taxation Specialist',
+  'Treasury & Banking Expert'
+];
 
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 60); // Faster typing speed
+  let titleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
 
-    return () => clearInterval(timer);
-  }, []);
+  const typeSpeed = 80;
+  const deleteSpeed = 40;
+  const pauseTime = 1200;
+
+  const type = () => {
+    const currentTitle = titles[titleIndex];
+
+    if (!isDeleting) {
+      setText(currentTitle.substring(0, charIndex + 1));
+      charIndex++;
+
+      if (charIndex === currentTitle.length) {
+        setTimeout(() => (isDeleting = true), pauseTime);
+      }
+    } else {
+      setText(currentTitle.substring(0, charIndex - 1));
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+      }
+    }
+  };
+
+  const timer = setInterval(type, isDeleting ? deleteSpeed : typeSpeed);
+
+  return () => clearInterval(timer);
+}, []);
+
 
   const socialLinks = [
     { icon: Linkedin, url: 'https://www.linkedin.com/in/ca-jitendra-sharma-09412417/', label: 'LinkedIn' },
@@ -61,25 +88,24 @@ const Hero = () => {
               </span>
             </motion.div>
 
-            <motion.h1
+             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-5xl lg:text-7xl font-bold text-primary mb-6 font-['Poppins']"
+              className="text-3xl lg:text-5xl font-bold text-primary mb-6 font-['Poppins']"
             >
-              CA Jitendra
-              <br />
+              <span>CA Jitendra </span>
               <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent">
-                Sharma
+               Sharma
               </span>
-            </motion.h1>
+              </motion.h1>
 
             {/* Typewriter Text */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="h-20 mb-8"
+              className="h-12 mb-4"
             >
               <h2 className="text-2xl lg:text-3xl text-gray-700 font-['M_PLUS_1'] font-medium">
                 {text}<span className="animate-pulse">|</span>
@@ -166,10 +192,10 @@ const Hero = () => {
                 
                 <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-2xl overflow-hidden">
                   <img
-                    src="./images/JS1.webp"
+                    src="./images/JS2.webp"
                     alt="CA Jitendra Sharma"
                     loading="lazy"
-                    className="relative z-10 w-full h-auto rounded-2xl"
+                    className="relative z-10 w-full max-w-sm mx-auto h-auto rounded-2xl"
                     onError={(e) => {
                       e.target.style.display = 'none';
                       e.target.parentElement.innerHTML += '<div class="w-full h-96 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center"><span class="text-4xl font-bold text-primary">JS</span></div>';

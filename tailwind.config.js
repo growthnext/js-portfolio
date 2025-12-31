@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#000030',
-        secondary: '#4A5568',
-        accent: '#2563EB',
-        light: '#F7FAFC',
-        dark: '#1A202C',
+        primary: '#0F62FE',   // main blue
+        secondary: '#1C9CF6',
+        accent: '#38E8FF',
+        light: '#F5FAFF',
+        dark: '#0F172A',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

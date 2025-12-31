@@ -155,7 +155,7 @@ const Experience = () => {
           className="relative"
         >
           {/* Vertical Line */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary/20 via-primary/50 to-primary/20"></div>
+          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-1.5 h-full bg-gradient-to-b from-secondary via-primary to-secondary rounded-full"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -178,7 +178,7 @@ const Experience = () => {
               {/* Experience Card */}
               <motion.div
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl p-8 group hover:shadow-2xl transition-all duration-300"
+                className="bg-white rounded-3xl p-8 border-2 border-primary/30 shadow-[0_30px_80px_rgba(15,98,254,0.15)] transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start gap-6 mb-6">
@@ -186,7 +186,7 @@ const Experience = () => {
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-200"
+                    className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg"
                   >
                     <img
                       src={exp.logo}
