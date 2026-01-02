@@ -175,7 +175,7 @@ const Contact = () => {
               
               <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-4 border border-gray-200 shadow-xl overflow-hidden">
                 <img
-                  src="./images/JS3.jpg"
+                  src="./images/JS3.webp"
                   alt="CA Jitendra Sharma"
                   loading="lazy"
                   className="w-full h-auto rounded-2xl"

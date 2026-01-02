@@ -10,11 +10,13 @@ import {
   Target,
 } from 'lucide-react';
 
+
 const Skills = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
 
   const skillCategories = [
     {
@@ -85,6 +87,7 @@ const Skills = () => {
     },
   ];
 
+
   const industries = [
     { name: 'Infrastructure & Road Assets', icon: Building },
     { name: 'Real Estate & Housing', icon: Building },
@@ -94,6 +97,10 @@ const Skills = () => {
     { name: 'Financial Services', icon: DollarSign },
   ];
 
+  // Client logos array
+  const clientLogos = Array.from({ length: 14 }, (_, i) => `./images/clients/c${i + 1}.png`);
+
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,6 +108,7 @@ const Skills = () => {
       transition: { staggerChildren: 0.1 },
     },
   };
+
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -111,6 +119,7 @@ const Skills = () => {
     },
   };
 
+
   return (
     <section id="skills" ref={ref} className="relative py-32 overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
       {/* Background Decorations */}
@@ -118,6 +127,7 @@ const Skills = () => {
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-indigo-200 rounded-full blur-3xl"></div>
       </div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
@@ -149,6 +159,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
+
         {/* Skills Grid */}
         <motion.div
           variants={containerVariants}
@@ -172,10 +183,12 @@ const Skills = () => {
                 <category.icon className="text-primary" size={32} />
               </motion.div>
 
+
               {/* Title */}
               <h3 className="text-2xl font-bold text-primary mb-6 group-hover:text-blue-600 transition-colors">
                 {category.title}
               </h3>
+
 
               {/* Skills List */}
               <ul className="space-y-3">
@@ -200,6 +213,7 @@ const Skills = () => {
           ))}
         </motion.div>
 
+
         {/* Industry Experience Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -209,6 +223,7 @@ const Skills = () => {
           <h3 className="text-4xl font-bold text-primary text-center mb-12">
             Industry <span className="text-gray-700">Experience</span>
           </h3>
+
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, index) => (
@@ -232,6 +247,66 @@ const Skills = () => {
             ))}
           </div>
         </motion.div>
+
+
+        {/* Clients I Have Served Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-24"
+        >
+          <h3 className="text-4xl font-bold text-primary text-center mb-12">
+            Clients <span className="text-gray-700">I Have Served</span>
+          </h3>
+
+          {/* Infinite Scrolling Logo Container */}
+          <div className="relative overflow-hidden bg-white/50 backdrop-blur-sm rounded-3xl py-12 border border-gray-200">
+            <motion.div
+              className="flex gap-12"
+              animate={{
+                x: [0, -1680], // 14 logos * 120px width = 1680px (adjust based on actual logo width + gap)
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+            >
+              {/* First set of logos */}
+              {clientLogos.map((logo, index) => (
+                <div
+                  key={`logo-1-${index}`}
+                  className="flex-shrink-0 w-32 h-32 bg-white rounded-2xl shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
+                    src={logo}
+                    alt={`Client ${index + 1}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              ))}
+              
+              {/* Duplicate set for seamless loop */}
+              {clientLogos.map((logo, index) => (
+                <div
+                  key={`logo-2-${index}`}
+                  className="flex-shrink-0 w-32 h-32 bg-white rounded-2xl shadow-md flex items-center justify-center p-4 hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
+                    src={logo}
+                    alt={`Client ${index + 1}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
+
 
         {/* Value Proposition */}
         <motion.div
@@ -269,5 +344,6 @@ const Skills = () => {
     </section>
   );
 };
+
 
 export default Skills;

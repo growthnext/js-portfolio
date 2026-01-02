@@ -53,7 +53,7 @@ function App() {
                 transition={{ delay: 0.1 }}
                 className="text-6xl font-bold text-primary mb-4 font-['Poppins']"
               >
-                CA
+                JS
               </motion.h1>
               <motion.div
                 initial={{ width: 0 }}
