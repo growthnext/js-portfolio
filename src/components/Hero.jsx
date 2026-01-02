@@ -88,6 +88,60 @@ const Hero = () => {
               </span>
             </motion.div>
 
+            {/* Image Section - Mobile Only (appears after welcome badge) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative lg:hidden mb-8"
+            >
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative z-10"
+              >
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-200/50 to-indigo-200/50 backdrop-blur-xl rounded-3xl transform rotate-6 group-hover:rotate-3 transition-transform duration-500"></div>
+                  
+                  <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-2xl overflow-hidden">
+                    <img
+                      src="./images/JS2.webp"
+                      alt="CA Jitendra Sharma"
+                      loading="lazy"
+                      className="relative z-10 w-full max-w-sm mx-auto h-auto rounded-2xl"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.parentElement.innerHTML += '<div class="w-full h-96 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center"><span class="text-4xl font-bold text-primary">JS</span></div>';
+                      }}
+                    />
+
+                    {/* Stats Cards */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2 }}
+                      className="mt-6 grid grid-cols-3 gap-4"
+                    >
+                      {[
+                        { value: '25+', label: 'Years' },
+                        { value: '₹30K+', label: 'Cr Managed' },
+                        { value: '20+', label: 'Banks Led' },
+                      ].map((stat, index) => (
+                        <motion.div
+                          key={index}
+                          whileHover={{ scale: 1.1, y: -5 }}
+                          className="bg-white/70 backdrop-blur-sm rounded-xl p-4 text-center border border-gray-200 shadow-lg"
+                        >
+                          <div className="text-2xl font-bold text-primary mb-1">{stat.value}</div>
+                          <div className="text-xs text-gray-600">{stat.label}</div>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
              <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -175,12 +229,12 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Image Section */}
+          {/* Image Section - Desktop Only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <motion.div
               animate={{ y: [0, -15, 0] }}
@@ -192,7 +246,7 @@ const Hero = () => {
                 
                 <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-2xl overflow-hidden">
                   <img
-                    src="./images/JS2.webp"
+                    src="./images/JS3.webp"
                     alt="CA Jitendra Sharma"
                     loading="lazy"
                     className="relative z-10 w-full max-w-sm mx-auto h-auto rounded-2xl"

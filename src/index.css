@@ -2,68 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   Global Reset
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* =========================
+   Base Styles
+========================= */
 body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background: #FFFFFF;
+  color: #0F172A; /* neutral dark text */
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar - Sky Blue Theme */
+/* =========================
+   Color System (Reference)
+   Primary   : #0F73FF
+   Secondary : #0B5ED7
+   Dark      : #0A3D91
+   Light     : #EEF4FF
+========================= */
+
+/* =========================
+   Custom Scrollbar
+========================= */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EFF3FF;
+  background: #EEF4FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E40AF;
-  border-radius: 5px;
+  background: #0F73FF;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1E3A8A;
+  background: #0B5ED7;
 }
 
-/* Selection */
+/* =========================
+   Text Selection
+========================= */
 ::selection {
-  background: #2563EB;
+  background: #0F73FF;
   color: #FFFFFF;
 }
 
-/* Smooth transitions */
+/* =========================
+   Smooth Transitions
+========================= */
 @layer utilities {
   .transition-smooth {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-/* Glassmorphism - Sky Blue */
+/* =========================
+   Glassmorphism (Corporate Blue)
+========================= */
 .glass {
-  background: rgba(239, 243, 255, 0.8);
+  background: rgba(238, 244, 255, 0.85);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(30, 64, 175, 0.25);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(15, 115, 255, 0.25);
 }
 
-/* Performance optimizations */
+/* =========================
+   Performance Optimizations
+========================= */
 img {
   content-visibility: auto;
 }
 
-/* Reduce motion for accessibility */
+/* =========================
+   Reduced Motion (Accessibility)
+========================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
