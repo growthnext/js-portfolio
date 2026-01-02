@@ -3,13 +3,12 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
   DollarSign,
-  TrendingUp,
-  Shield,
-  Building,
-  FileText,
-  Target,
+  Factory,
+  Home,
+  Hammer,
+  Sparkles,
+  Car,
 } from 'lucide-react';
-
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -17,89 +16,80 @@ const Skills = () => {
     threshold: 0.1,
   });
 
-
   const skillCategories = [
     {
       title: 'Corporate Finance & Strategy',
-      icon: DollarSign,
+      image: './images/exp/ec1.webp',
       skills: [
         'Corporate Finance & Strategic Financial Leadership',
         'Treasury, Banking & Fund Flow Optimization',
         'Project Finance, NCDs & Commercial Papers',
         'Working Capital & Structured Funding',
-        'Large-scale Infrastructure Financing',
       ],
     },
     {
       title: 'Banking & Consortiums',
-      icon: Building,
+      image: './images/exp/ec2.webp',
       skills: [
         'Large Banking Consortium Management (20+ Banks)',
         'Nationalized, Private & Foreign Bank Relations',
         'NBFC Funding & Strategic Partnerships',
         'Credit Rating & Limit Enhancement',
-        'Bank Restructuring & Compliance Advisory',
       ],
     },
     {
       title: 'Treasury & Risk Management',
-      icon: Shield,
+      image: './images/exp/ec3.webp',
       skills: [
         'Forex Risk Management & Hedging Strategies',
         'Multi-currency Exposure Management',
         'Forward Contracts, Options & Natural Hedging',
         'Cash Flow Optimization & Liquidity Management',
-        'SAP Financial & Treasury Implementations',
       ],
     },
     {
       title: 'Governance & Compliance',
-      icon: FileText,
+      image: './images/exp/ec4.webp',
       skills: [
         'Cash Flow, MIS, Internal Controls & Compliance',
         'Board-level Financial Governance & Advisory',
         'Financial Reporting, Audit & Taxation',
         'Statutory Compliance & Regulatory Frameworks',
-        'ERP Systems & Financial Process Automation',
       ],
     },
     {
       title: 'Capital & Fund Raising',
-      icon: TrendingUp,
+      image: './images/exp/ec5.webp',
       skills: [
         'Equity Fund Raising (Raised ₹10,000 Cr+)',
         'Debt Structuring (Managed ₹12,000 Cr+)',
         'ECB, NCDs & Commercial Paper Issuance',
         'Investor Relations & Reporting',
-        'Credit Rating Advisory',
       ],
     },
     {
       title: 'Strategic Advisory',
-      icon: Target,
+      image: './images/exp/ec6.webp',
       skills: [
         'CFO Advisory Services for MSMEs & Corporates',
         'Financial Discipline & Cost Optimization',
         'Growth Strategy & Business Transformation',
         'Mergers, Acquisitions & Restructuring',
-        'Board Advisory & Leadership Consulting',
       ],
     },
   ];
 
-
   const industries = [
-    { name: 'Infrastructure & Road Assets', icon: Building },
-    { name: 'Real Estate & Housing', icon: Building },
-    { name: 'Manufacturing', icon: Building },
-    { name: 'Chemicals & Personal Care', icon: Building },
-    { name: 'Automotive & Tyres', icon: Building },
+    { name: 'Infrastructure & Road Assets', icon: Hammer },
+    { name: 'Real Estate & Housing', icon: Home },
+    { name: 'Manufacturing', icon: Factory },
+    { name: 'Chemicals & Personal Care', icon: Sparkles },
+    { name: 'Automotive & Tyres', icon: Car },
     { name: 'Financial Services', icon: DollarSign },
   ];
 
   // Client logos array
   const clientLogos = Array.from({ length: 14 }, (_, i) => `./images/clients/c${i + 1}.png`);
-
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -108,7 +98,6 @@ const Skills = () => {
       transition: { staggerChildren: 0.1 },
     },
   };
-
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -119,7 +108,6 @@ const Skills = () => {
     },
   };
 
-
   return (
     <section id="skills" ref={ref} className="relative py-32 overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
       {/* Background Decorations */}
@@ -127,7 +115,6 @@ const Skills = () => {
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-indigo-200 rounded-full blur-3xl"></div>
       </div>
-
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
@@ -159,7 +146,6 @@ const Skills = () => {
           </p>
         </motion.div>
 
-
         {/* Skills Grid */}
         <motion.div
           variants={containerVariants}
@@ -174,21 +160,25 @@ const Skills = () => {
               whileHover={{ scale: 1.03, y: -10 }}
               className="bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl p-8 group hover:shadow-2xl transition-all duration-300"
             >
-              {/* Icon */}
+              {/* Image at Top Middle */}
               <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4 }}
+                className="w-full flex justify-center mb-6"
               >
-                <category.icon className="text-primary" size={32} />
+                <div className="w-40 h-24 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </motion.div>
 
-
               {/* Title */}
-              <h3 className="text-2xl font-bold text-primary mb-6 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-2xl font-bold text-primary mb-6 text-center group-hover:text-blue-600 transition-colors">
                 {category.title}
               </h3>
-
 
               {/* Skills List */}
               <ul className="space-y-3">
@@ -213,7 +203,6 @@ const Skills = () => {
           ))}
         </motion.div>
 
-
         {/* Industry Experience Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -223,7 +212,6 @@ const Skills = () => {
           <h3 className="text-4xl font-bold text-primary text-center mb-12">
             Industry <span className="text-gray-700">Experience</span>
           </h3>
-
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, index) => (
@@ -247,7 +235,6 @@ const Skills = () => {
             ))}
           </div>
         </motion.div>
-
 
         {/* Clients I Have Served Section */}
         <motion.div
@@ -307,7 +294,6 @@ const Skills = () => {
           </div>
         </motion.div>
 
-
         {/* Value Proposition */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -344,6 +330,5 @@ const Skills = () => {
     </section>
   );
 };
-
 
 export default Skills;
