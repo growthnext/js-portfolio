@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Calendar } from 'lucide-react';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -55,45 +55,45 @@ const Contact = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 },
+      transition: { staggerChildren: 0.12 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
 
   return (
-    <section id="contact" ref={ref} className="relative py-32 overflow-hidden bg-white">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-indigo-200 rounded-full blur-3xl"></div>
+    <section id="contact" ref={ref} className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-white">
+      {/* Background Decorations - Optimized for mobile */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-10 md:top-20 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-blue-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 md:bottom-20 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-indigo-200 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section Header */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        {/* Section Header - Mobile Optimized */}
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.5 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.4 }}
-            className="inline-block px-6 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium mb-6"
+            className="inline-block px-4 py-2 md:px-6 md:py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-xs md:text-sm font-medium mb-4 md:mb-6"
           >
             Get In Touch
           </motion.span>
           
-          <h2 className="text-5xl lg:text-6xl font-bold text-primary mb-6 font-['Poppins']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 md:mb-6 font-['Poppins'] leading-tight px-4">
             Let's Connect &
             <br />
             <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent">
@@ -101,39 +101,40 @@ const Contact = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Ready to transform your financial strategy? Let's discuss how we can drive your business forward
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Contact Info */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left: Contact Info - Mobile First */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="space-y-8"
+            className="space-y-5 md:space-y-6 lg:space-y-8"
           >
-            {/* Contact Cards */}
+            {/* Contact Cards - Optimized for touch */}
             {contactInfo.map((info, index) => (
               <motion.a
                 key={index}
                 href={info.link}
                 variants={itemVariants}
-                whileHover={{ scale: 1.03, x: 10 }}
-                className="block bg-white/70 backdrop-blur-xl border border-gray-200 rounded-2xl p-8 group hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="block bg-white/90 backdrop-blur-xl border border-gray-200 rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8 group hover:shadow-2xl hover:border-primary/30 transition-all duration-300 touch-manipulation"
               >
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4 md:gap-6">
                   <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors"
+                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary/10 to-blue-50 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:from-primary/20 group-hover:to-blue-100 transition-all"
                   >
-                    <info.icon className="text-primary" size={28} />
+                    <info.icon className="text-primary" size={window.innerWidth < 768 ? 22 : 28} />
                   </motion.div>
-                  <div>
-                    <div className="text-gray-600 text-sm mb-1">{info.title}</div>
-                    <div className="text-primary text-xl font-semibold group-hover:text-blue-600 transition-colors">
+                  <div className="min-w-0 flex-1">
+                    <div className="text-gray-500 text-xs md:text-sm mb-1 uppercase tracking-wide">{info.title}</div>
+                    <div className="text-primary text-base md:text-lg lg:text-xl font-semibold group-hover:text-blue-600 transition-colors break-words">
                       {info.value}
                     </div>
                   </div>
@@ -141,68 +142,65 @@ const Contact = () => {
               </motion.a>
             ))}
 
-            {/* Social Links */}
+            {/* Social Links - Touch Optimized */}
             <motion.div
               variants={itemVariants}
-              className="bg-white/70 backdrop-blur-xl border border-gray-200 rounded-2xl p-8 shadow-lg"
+              className="bg-white/90 backdrop-blur-xl border border-gray-200 rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8 shadow-lg"
             >
-              <h3 className="text-2xl font-bold text-primary mb-6">Connect on Social Media</h3>
-              <div className="flex gap-4">
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-primary mb-4 md:mb-6">Connect on Social Media</h3>
+              <div className="flex flex-wrap gap-3 md:gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-14 h-14 bg-primary/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-primary hover:text-white transition-all duration-300 ${social.color}`}
+                    className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/10 to-blue-50 rounded-xl flex items-center justify-center text-primary hover:text-white transition-all duration-300 ${social.color} touch-manipulation shadow-sm hover:shadow-md`}
                     aria-label={social.name}
                   >
-                    <social.icon size={24} />
+                    <social.icon size={window.innerWidth < 768 ? 20 : 24} />
                   </motion.a>
                 ))}
               </div>
             </motion.div>
 
-            {/* Profile Image */}
+            {/* Quick Stats/Info Card - New Addition */}
             <motion.div
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              className="relative group"
+              className="bg-gradient-to-br from-primary/5 via-blue-50/50 to-indigo-50/30 backdrop-blur-xl border border-primary/20 rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8 shadow-lg"
             >
-              <div className="absolute -inset-2 bg-gradient-to-br from-blue-200/50 to-indigo-200/50 backdrop-blur-xl rounded-3xl transform -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
-              
-              <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-4 border border-gray-200 shadow-xl overflow-hidden">
-                <img
-                  src="./images/JS2.webp"
-                  alt="CA Jitendra Sharma"
-                  loading="lazy"
-                  className="w-full h-auto rounded-2xl"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML += '<div class="w-full h-64 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center"><span class="text-6xl font-bold text-primary">JS</span></div>';
-                  }}
-                />
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Calendar className="text-primary" size={window.innerWidth < 768 ? 22 : 28} />
+                </div>
+                <div>
+                  <h4 className="text-base md:text-lg font-bold text-primary mb-2">Business Hours</h4>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    <strong>Monday - Friday</strong><br />
+                    10:00 AM - 6:00 PM IST
+                  </p>
+                </div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right: Map */}
+          {/* Right: Map - Responsive */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             id="map"
-            className="sticky top-24"
+            className="lg:sticky lg:top-24"
           >
             <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl p-6 shadow-xl overflow-hidden"
+              whileHover={{ scale: 1.005 }}
+              className="bg-white/90 backdrop-blur-xl border border-gray-200 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-5 lg:p-6 shadow-xl overflow-hidden"
             >
-              <h3 className="text-2xl font-bold text-primary mb-6">Our Location</h3>
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-primary mb-4 md:mb-6">Our Location</h3>
               
-              <div className="relative w-full h-[500px] rounded-2xl overflow-hidden border border-gray-200">
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.0!2d72.9!3d19.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x43094bfff60fb557!2sGrowthNEXT%20Consultants!5e0!3m2!1sen!2sin!4v1234567890"
                   width="100%"
@@ -216,11 +214,12 @@ const Contact = () => {
               </div>
 
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="mt-6 bg-blue-50 rounded-xl p-4 text-center border border-gray-200"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.99 }}
+                className="mt-4 md:mt-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-lg md:rounded-xl p-4 md:p-5 text-center border border-primary/10 shadow-sm"
               >
-                <div className="text-primary font-semibold mb-1">GrowthNEXT Consultants</div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-primary font-bold text-sm md:text-base mb-2">GrowthNEXT Consultants</div>
+                <div className="text-gray-600 text-xs md:text-sm leading-relaxed">
                   703, Oriana Business Park, Opp. GST Office,
                   <br />
                   Road No 22, Wagle Industrial Estate,
@@ -232,26 +231,28 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        {/* CTA Section */}
+        {/* CTA Section - Mobile Optimized */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 md:mt-16 lg:mt-20 text-center"
         >
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-gray-200 rounded-3xl p-12 shadow-xl">
-            <h3 className="text-3xl font-bold text-primary mb-4">Ready to Transform Your Business?</h3>
-            <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-50 via-indigo-50/50 to-blue-50 border border-primary/20 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 shadow-xl">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4 leading-tight px-4">
+              Ready to Transform Your Business?
+            </h3>
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
               Let's discuss how strategic CFO advisory can accelerate your growth and optimize your financial operations
             </p>
             <motion.a
               href="tel:+919769955233"
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,48,0.2)' }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all duration-300 text-lg shadow-lg"
+              whileHover={{ scale: 1.05, boxShadow: '0 15px 40px rgba(0,0,48,0.25)' }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-3 md:px-10 md:py-5 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-full hover:from-primary/90 hover:to-blue-700 transition-all duration-300 text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl touch-manipulation"
             >
-              <Phone size={24} />
-              Schedule a Consultation
+              <Phone size={window.innerWidth < 768 ? 20 : 24} />
+              <span className="whitespace-nowrap">Schedule a Consultation</span>
             </motion.a>
           </div>
         </motion.div>

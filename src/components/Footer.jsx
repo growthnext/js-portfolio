@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
@@ -12,6 +14,7 @@ const Footer = () => {
     { name: 'Expertise', href: '#skills' },
     { name: 'Contact', href: '#contact' },
   ];
+
 
   const socialLinks = [
     {
@@ -31,8 +34,9 @@ const Footer = () => {
     },
   ];
 
+
   return (
-    <footer className="relative bg-gradient-to-b from-white to-gray-100 border-t border-gray-200">
+    <footer className="relative bg-[#0F172A] border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -42,10 +46,10 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-primary mb-4 font-['Poppins']">
+            <h3 className="text-2xl font-bold text-[#4DA3FF] mb-4 font-['Poppins']">
               CA Jitendra Sharma
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Strategic CFO Advisor & Board Director with 25+ years of excellence in Corporate Finance, Treasury & Banking
             </p>
             <div className="flex gap-3">
@@ -58,7 +62,7 @@ const Footer = () => {
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className="w-10 h-10 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-[#0F73FF]/10 border border-[#0F73FF]/30 rounded-lg flex items-center justify-center text-[#4DA3FF] hover:bg-[#0F73FF] hover:text-white transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -67,6 +71,7 @@ const Footer = () => {
             </div>
           </motion.div>
 
+
           {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -74,14 +79,14 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-primary font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold text-lg mb-4 font-['Poppins']">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <motion.a
                     href={link.href}
                     whileHover={{ x: 5 }}
-                    className="text-gray-600 text-sm hover:text-primary transition-colors inline-block"
+                    className="text-gray-300 text-sm hover:text-[#4DA3FF] transition-colors inline-block"
                   >
                     {link.name}
                   </motion.a>
@@ -90,6 +95,7 @@ const Footer = () => {
             </ul>
           </motion.div>
 
+
           {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -97,8 +103,8 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-primary font-semibold text-lg mb-4">Services</h4>
-            <ul className="space-y-3 text-gray-600 text-sm">
+            <h4 className="text-white font-semibold text-lg mb-4 font-['Poppins']">Services</h4>
+            <ul className="space-y-3 text-gray-300 text-sm">
               <li>CFO Advisory</li>
               <li>Fund Raising</li>
               <li>Treasury & Banking</li>
@@ -108,6 +114,7 @@ const Footer = () => {
             </ul>
           </motion.div>
 
+
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -115,12 +122,12 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-primary font-semibold text-lg mb-4">Contact</h4>
+            <h4 className="text-white font-semibold text-lg mb-4 font-['Poppins']">Contact</h4>
             <ul className="space-y-4">
               <li>
                 <a
                   href="tel:+919769955233"
-                  className="flex items-start gap-3 text-gray-600 text-sm hover:text-primary transition-colors"
+                  className="flex items-start gap-3 text-gray-300 text-sm hover:text-[#4DA3FF] transition-colors"
                 >
                   <Phone size={16} className="mt-1 flex-shrink-0" />
                   <span>+91 97699 55233</span>
@@ -129,14 +136,14 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:jitendra.sharma@growthnext.co.in"
-                  className="flex items-start gap-2 min-w-0 text-gray-600 text-sm hover:text-primary transition-colors"
+                  className="flex items-start gap-2 min-w-0 text-gray-300 text-sm hover:text-[#4DA3FF] transition-colors"
                 >
                   <Mail size={16} className="mt-1 flex-shrink-0" />
                   <span className="break-words sm:break-normal">jitendra.sharma@growthnext.co.in</span>
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-gray-600 text-sm">
+                <div className="flex items-start gap-3 text-gray-300 text-sm">
                   <MapPin size={16} className="mt-1 flex-shrink-0" />
                   <span>Thane, Mumbai, India</span>
                 </div>
@@ -145,15 +152,16 @@ const Footer = () => {
           </motion.div>
         </div>
 
+
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
-          className="pt-8 border-t border-gray-200"
+          className="pt-8 border-t border-gray-800"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
             <p>© {currentYear} CA Jitendra Sharma. All rights reserved.</p>
             <p>
               Crafted with precision by{' '}
@@ -161,7 +169,7 @@ const Footer = () => {
                 href="https://growthnext.co.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline font-semibold"
+                className="text-[#4DA3FF] hover:text-[#0F73FF] hover:underline font-semibold transition-colors"
               >
                 GrowthNEXT
               </a>
@@ -172,5 +180,6 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 export default Footer;

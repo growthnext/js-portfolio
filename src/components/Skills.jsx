@@ -1,20 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  DollarSign,
-  Factory,
-  Home,
-  Hammer,
-  Sparkles,
-  Car,
-} from 'lucide-react';
+
 
 const Skills = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
 
   const skillCategories = [
     {
@@ -79,17 +73,20 @@ const Skills = () => {
     },
   ];
 
+
   const industries = [
-    { name: 'Infrastructure & Road Assets', icon: Hammer },
-    { name: 'Real Estate & Housing', icon: Home },
-    { name: 'Manufacturing', icon: Factory },
-    { name: 'Chemicals & Personal Care', icon: Sparkles },
-    { name: 'Automotive & Tyres', icon: Car },
-    { name: 'Financial Services', icon: DollarSign },
+    { name: 'Infrastructure & Road Assets', image: './images/ind/i1.webp' },
+    { name: 'Real Estate & Housing', image: './images/ind/i2.webp' },
+    { name: 'Manufacturing', image: './images/ind/i3.webp' },
+    { name: 'Logistics', image: './images/ind/i4.webp' },
+    { name: 'Warehousing', image: './images/ind/i5.webp' },
+    { name: 'Promoter Led Business', image: './images/ind/i6.webp' },
   ];
 
+
   // Client logos array
-  const clientLogos = Array.from({ length: 14 }, (_, i) => `./images/clients/c${i + 1}.png`);
+  const clientLogos = Array.from({ length: 14 }, (_, i) => `./images/clients/c${i + 1}.webp`);
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -98,6 +95,7 @@ const Skills = () => {
       transition: { staggerChildren: 0.1 },
     },
   };
+
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -108,6 +106,7 @@ const Skills = () => {
     },
   };
 
+
   return (
     <section id="skills" ref={ref} className="relative py-32 overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
       {/* Background Decorations */}
@@ -115,6 +114,7 @@ const Skills = () => {
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-indigo-200 rounded-full blur-3xl"></div>
       </div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
@@ -146,6 +146,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
+
         {/* Skills Grid */}
         <motion.div
           variants={containerVariants}
@@ -175,10 +176,12 @@ const Skills = () => {
                 </div>
               </motion.div>
 
+
               {/* Title */}
               <h3 className="text-2xl font-bold text-primary mb-6 text-center group-hover:text-blue-600 transition-colors">
                 {category.title}
               </h3>
+
 
               {/* Skills List */}
               <ul className="space-y-3">
@@ -203,6 +206,7 @@ const Skills = () => {
           ))}
         </motion.div>
 
+
         {/* Industry Experience Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -212,6 +216,7 @@ const Skills = () => {
           <h3 className="text-4xl font-bold text-primary text-center mb-12">
             Industry <span className="text-gray-700">Experience</span>
           </h3>
+
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, index) => (
@@ -223,18 +228,26 @@ const Skills = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300"
               >
+                {/* Image Container with aspect ratio similar to expertise section */}
                 <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full flex justify-center mb-4"
                 >
-                  <industry.icon className="text-primary" size={28} />
+                  <div className="w-40 h-24 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img
+                      src={industry.image}
+                      alt={industry.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
                 <div className="text-primary font-semibold">{industry.name}</div>
               </motion.div>
             ))}
           </div>
         </motion.div>
+
 
         {/* Clients I Have Served Section */}
         <motion.div
@@ -246,6 +259,7 @@ const Skills = () => {
           <h3 className="text-4xl font-bold text-primary text-center mb-12">
             Clients <span className="text-gray-700">I Have Served</span>
           </h3>
+
 
           {/* Infinite Scrolling Logo Container */}
           <div className="relative overflow-hidden bg-white/50 backdrop-blur-sm rounded-3xl py-12 border border-gray-200">
@@ -294,6 +308,7 @@ const Skills = () => {
           </div>
         </motion.div>
 
+
         {/* Value Proposition */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -330,5 +345,6 @@ const Skills = () => {
     </section>
   );
 };
+
 
 export default Skills;
