@@ -105,7 +105,7 @@ const Hero = () => {
                   
                   <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-2xl overflow-hidden">
                     <img
-                      src="./images/JS2.webp"
+                      src="./images/JS3.webp"
                       alt="CA Jitendra Sharma"
                       loading="lazy"
                       className="relative z-10 w-full max-w-sm mx-auto h-auto rounded-2xl"
