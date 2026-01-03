@@ -5,8 +5,9 @@ import { ChevronDown, Linkedin, Instagram, Facebook, Mail, Phone } from 'lucide-
 const Hero = () => {
   const [text, setText] = useState('');
   const titles = [
+  'Founder & Director',
   'CFO Advisor',
-  'Board Director',
+  'Financial Consultant',
   'Audit & Taxation Specialist',
   'Treasury & Banking Expert'
 ];
@@ -82,7 +83,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="inline-block mb-6"
-            >
+            ><br />
               <span className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium">
                 Welcome to my portfolio
               </span>

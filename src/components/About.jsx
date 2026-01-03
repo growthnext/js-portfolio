@@ -23,7 +23,7 @@ const About = () => {
     {
       icon: Users,
       title: 'Board Advisor',
-      description: 'Current board member at VVF Ltd. and Independent Director at IRB Group',
+      description: 'Current board member at VVF Ltd. and Independent Director at various corporates',
     },
     {
       icon: Shield,

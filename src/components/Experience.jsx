@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
+
 const Experience = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
 
   const experiences = [
     {
@@ -15,7 +17,7 @@ const Experience = () => {
       role: 'Founder & Director',
       period: 'March 2022 – Present',
       location: 'Mumbai, India',
-      logo: './images/logos/growthnext.png',
+      logo: './images/logos/growthnext.webp',
       achievements: [
         'Providing strategic CFO advisory services to MSMEs, Mid-Corporate, and Large Corporates',
         'Leading fundraising initiatives, taxation planning, and audit & assurance services',
@@ -29,7 +31,7 @@ const Experience = () => {
       role: 'Partner',
       period: 'July 2022 – Present',
       location: 'Mumbai, India',
-      logo: './images/logos/jb.png',
+      logo: './images/logos/jb.webp',
       achievements: [
         'Partnering in chartered accountancy practice focused on audit and taxation',
         'Providing comprehensive compliance and regulatory advisory services',
@@ -42,7 +44,7 @@ const Experience = () => {
       role: 'Chief Financial Officer',
       period: 'December 2019 – February 2022',
       location: 'Mumbai, Maharashtra',
-      logo: './images/logos/irb.png',
+      logo: './images/logos/irb.webp',
       achievements: [
         'Managed road infrastructure assets with enterprise value exceeding ₹30,000 Crores',
         'Successfully raised ₹10,000 Crores in equity funding from GIC (sovereign wealth fund)',
@@ -56,7 +58,7 @@ const Experience = () => {
       role: 'Deputy General Manager – Treasury & Banking',
       period: 'June 2012 – June 2014',
       location: 'Mumbai, Maharashtra',
-      logo: './images/logos/tata.png',
+      logo: './images/logos/tata.webp',
       achievements: [
         'Established innovative working capital facilities for residential projects',
         'Facilitated issuance of long-term bonds (3-5 years) at competitive rates',
@@ -69,7 +71,7 @@ const Experience = () => {
       role: 'Manager – Treasury',
       period: 'February 2006 – November 2007',
       location: 'Mumbai, Maharashtra',
-      logo: './images/logos/ceat.png',
+      logo: './images/logos/ceat.webp',
       achievements: [
         'Managed consortium of 14 banking partners for working capital',
         'Negotiated favorable interest rate reductions and enhanced MPBF limits',
@@ -82,7 +84,7 @@ const Experience = () => {
       role: 'Manager – Treasury Controls',
       period: 'December 2007 – February 2010',
       location: 'Mumbai, Maharashtra',
-      logo: './images/logos/clariant.png',
+      logo: './images/logos/clariant.webp',
       achievements: [
         'Established multi-banking working capital facilities with foreign banks',
         'Managed credit control, export & import banking, and forex management',
@@ -92,6 +94,7 @@ const Experience = () => {
     },
   ];
 
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -99,6 +102,7 @@ const Experience = () => {
       transition: { staggerChildren: 0.2 },
     },
   };
+
 
   const itemVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -109,6 +113,7 @@ const Experience = () => {
     },
   };
 
+
   return (
     <section id="experience" ref={ref} className="relative py-32 overflow-hidden bg-white">
       {/* Background Decorations */}
@@ -116,6 +121,7 @@ const Experience = () => {
         <div className="absolute top-40 right-20 w-96 h-96 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 left-20 w-96 h-96 bg-indigo-200 rounded-full blur-3xl"></div>
       </div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
@@ -147,6 +153,7 @@ const Experience = () => {
           </p>
         </motion.div>
 
+
         {/* Timeline */}
         <motion.div
           variants={containerVariants}
@@ -156,6 +163,7 @@ const Experience = () => {
         >
           {/* Vertical Line */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-1.5 h-full bg-gradient-to-b from-secondary via-primary to-secondary rounded-full"></div>
+
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -174,6 +182,7 @@ const Experience = () => {
                   index % 2 === 0 ? 'right-0' : 'left-0'
                 } transform translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-white shadow-lg z-20`}
               />
+
 
               {/* Experience Card */}
               <motion.div
@@ -200,6 +209,7 @@ const Experience = () => {
                     />
                   </motion.div>
 
+
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors">
                       {exp.role}
@@ -218,6 +228,7 @@ const Experience = () => {
                     </div>
                   </div>
                 </div>
+
 
                 {/* Achievements */}
                 <div className="space-y-3">
@@ -243,7 +254,8 @@ const Experience = () => {
           ))}
         </motion.div>
 
-        {/* Summary Stats */}
+
+        {/* Summary Stats - Updated with Primary Color & Hover Effects */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -261,11 +273,47 @@ const Experience = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 1 + index * 0.1, type: 'spring' }}
-              whileHover={{ scale: 1.1, rotate: 2 }}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-gray-200 rounded-2xl p-6 text-center shadow-lg"
+              whileHover={{ 
+                scale: 1.08, 
+                y: -8,
+                boxShadow: '0 25px 50px -12px rgba(15, 115, 255, 0.4)'
+              }}
+              className="bg-[#0F73FF] rounded-2xl p-6 text-center shadow-xl cursor-pointer overflow-hidden relative group transition-all duration-300"
             >
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
+              {/* Animated gradient overlay on hover */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-[#4DA3FF] via-[#0F73FF] to-[#0B5ED7] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                initial={{ backgroundPosition: '0% 50%' }}
+                whileHover={{ 
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  transition: { duration: 3, repeat: Infinity }
+                }}
+              />
+              
+              {/* Content */}
+              <div className="relative z-10">
+                <motion.div 
+                  className="text-3xl lg:text-4xl font-bold text-white mb-2"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  {stat.value}
+                </motion.div>
+                <div className="text-[#EEF4FF] text-sm font-medium">{stat.label}</div>
+              </div>
+              
+              {/* Shine effect on hover */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-30"
+                initial={{ x: '-100%' }}
+                whileHover={{ 
+                  x: '100%',
+                  transition: { duration: 0.6, ease: 'easeInOut' }
+                }}
+                style={{
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)'
+                }}
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -273,5 +321,6 @@ const Experience = () => {
     </section>
   );
 };
+
 
 export default Experience;

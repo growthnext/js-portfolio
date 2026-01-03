@@ -307,40 +307,6 @@ const Skills = () => {
             </motion.div>
           </div>
         </motion.div>
-
-
-        {/* Value Proposition */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-24 bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl p-12 shadow-xl"
-        >
-          <h3 className="text-3xl font-bold text-primary mb-8 text-center">
-            Delivering Strategic Value
-          </h3>
-          <div className="grid md:grid-cols-5 gap-6">
-            {[
-              'Financial Discipline',
-              'Cost of Fund Reduction',
-              'Treasury Transformation',
-              'Risk Mitigation',
-              'Sustainable Growth',
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.9 + index * 0.08 }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="text-center"
-              >
-                <div className="w-3 h-3 bg-primary rounded-full mx-auto mb-3"></div>
-                <div className="text-gray-700 font-medium text-sm">{value}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
